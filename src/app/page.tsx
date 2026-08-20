@@ -60,7 +60,7 @@ export default function Home() {
       </h1>
       <Card className="w-full">
         <CardHeader>
-          <CardTitle>Ender Pearl Stronghold Triangulator</CardTitle>
+          <CardTitle className="text-lg">Coordinates</CardTitle>
         </CardHeader>
         <CardContent>
           {/* Form for inputting the coordinates and angles of the two ender pearl throws */}
@@ -145,31 +145,34 @@ export default function Home() {
 
       {/* Display the calculated stronghold coordinates and distance */}
       <Card className="w-full">
-        <CardHeader>
-          <CardTitle>Locations</CardTitle>
-        </CardHeader>
         <CardContent>
           <div className="grid gap-4 sm:grid-cols-2">
-            <h4 className="font-medium">Overworld</h4>
-            <h4 className="font-medium">Nether</h4>
-            <div className="grid gap-2">Stronghold Location: {stronghold}</div>
-            <div className="grid gap-2">
+            <p className="text-lg">Overworld</p>
+            <p className="text-lg">Nether</p>
+            <p className="grid gap-2">Stronghold Location: {stronghold}</p>
+            <p className="grid gap-2">
               Stronghold Location: {strongholdNether}
-            </div>
-            <div className="grid gap-2">Distance from Throw 2: {distance}</div>
-            <div className="grid gap-2">
+            </p>
+            <p className="grid gap-2">Distance from Throw 2: {distance}</p>
+            <p className="grid gap-2">
               Distance from Throw 2: {distanceNether}
-            </div>
+            </p>
           </div>
         </CardContent>
       </Card>
-      <section className="grid gap-3">
-        <h2 className="text-xl font-semibold">Chart</h2>
-        <canvas
-          id="coordsChart"
-          className="w-full rounded-lg border aspect-square"
-        ></canvas>
-      </section>
+
+      {/* Display the chart of the ender pearl throws and the calculated stronghold location */}
+      <Card className="w-full">
+        <CardHeader>
+          <CardTitle className="text-lg">Chart</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <canvas
+            id="coordsChart"
+            className="w-full rounded-lg border aspect-square"
+          ></canvas>
+        </CardContent>
+      </Card>
     </main>
   );
 }
