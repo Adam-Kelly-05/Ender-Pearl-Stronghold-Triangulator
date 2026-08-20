@@ -43,9 +43,12 @@ export default function StrongholdComponents({
 
   // Return the results as an object
   return {
-    stronghold: `${Math.round(strongholdX)}, ${Math.round(strongholdZ)}`,
-    distance: `${Math.round(distance)} blocks`,
-    strongholdNether: `${Math.round(strongholdX / 8)}, ${Math.round(strongholdZ / 8)}`,
-    distanceNether: `${Math.round(distance / 8)} blocks`,
+    stronghold: [Math.round(strongholdX), Math.round(strongholdZ)],
+    distance: Math.round(distance),
+    strongholdNether: [
+      Math.round(strongholdX / 8),
+      Math.round(strongholdZ / 8),
+    ],
+    distanceNether: Math.round(distance / 8),
   };
 }

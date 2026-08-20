@@ -6,8 +6,10 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import StrongholdComponents from "../components/StrongholdCoordinates";
+import CoordinatesChart from "../components/CoordinatesChart";
 
 export default function Home() {
+  // State variables for the user inputs and calculated results
   const [x1, setX1] = useState("");
   const [z1, setZ1] = useState("");
   const [angle1, setAngle1] = useState("");
@@ -21,13 +23,34 @@ export default function Home() {
   const [distanceNether, setDistanceNether] = useState("");
 
   function calculateStrongholdLocation() {
-    const result = StrongholdComponents({ x1, x2, z1, z2, angle1, angle2 });
+    const strongholdResult = StrongholdComponents({
+      x1,
+      x2,
+      z1,
+      z2,
+      angle1,
+      angle2,
+    });
 
     // Update the state with the calculated stronghold coordinates and distance
-    setStronghold(result.stronghold);
-    setDistance(result.distance);
-    setStrongholdNether(result.strongholdNether);
-    setDistanceNether(result.distanceNether);
+    setStronghold(
+      `X: ${strongholdResult.stronghold[0]}, Z: ${strongholdResult.stronghold[1]}`,
+    );
+    setDistance(`${strongholdResult.distance} blocks`);
+    setStrongholdNether(
+      `X: ${strongholdResult.strongholdNether[0]}, Z: ${strongholdResult.strongholdNether[1]}`,
+    );
+    setDistanceNether(`${strongholdResult.distanceNether} blocks`);
+
+    // Render the chart with the calculated coordinates
+    CoordinatesChart(
+      Number(x1),
+      Number(z1),
+      Number(x2),
+      Number(z2),
+      strongholdResult.stronghold[0],
+      strongholdResult.stronghold[1],
+    );
   }
 
   return (
@@ -144,9 +167,7 @@ export default function Home() {
         <h2 className="text-xl font-semibold">Chart</h2>
         <canvas
           id="coordsChart"
-          width="500px"
-          height="500px"
-          className="max-w-full rounded-lg border"
+          className="w-full rounded-lg border aspect-square"
         ></canvas>
       </section>
     </main>
