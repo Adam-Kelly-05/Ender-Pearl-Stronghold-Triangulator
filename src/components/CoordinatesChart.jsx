@@ -42,8 +42,8 @@ export default function CoordinatesChart(
           max: Math.max(x1, strongholdX, x2, 0) + 100,
           grid: {
             color(ctx) {
-              if (ctx.tick.value === 0) return "black";
-              return "lightgray";
+              if (ctx.tick.value === 0) return "oklch(55.1% 0.027 264.364)";
+              return "oklch(21.8% 0.008 223.9)";
             },
           },
         },
@@ -52,8 +52,8 @@ export default function CoordinatesChart(
           max: Math.max(z1, strongholdZ, z2, 0) + 100,
           grid: {
             color(ctx) {
-              if (ctx.tick.value === 0) return "black";
-              return "lightgray";
+              if (ctx.tick.value === 0) return "oklch(55.1% 0.027 264.364)";
+              return "oklch(21.8% 0.008 223.9)";
             },
           },
         },
