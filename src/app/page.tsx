@@ -109,7 +109,11 @@ export default function Home() {
                 />
               </div>
             </div>
-            <Button type="submit" id="submit" className="mt-6 w-full">
+            <Button
+              type="submit"
+              id="submit"
+              className="mt-6 w-full border-1 border-primary"
+            >
               Calculate Stronghold Location
             </Button>
           </form>
