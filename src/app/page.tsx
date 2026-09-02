@@ -55,9 +55,13 @@ export default function Home() {
 
   return (
     <main className="mx-auto flex min-h-screen w-full max-w-3xl flex-col gap-6 p-6">
-      <h1 className="text-2xl font-semibold">
-        Ender Pearl Stronghold Triangulator
-      </h1>
+      <Card className="w-full">
+        <CardHeader>
+          <CardTitle className="text-lg">
+            Ender Pearl Stronghold Triangulator
+          </CardTitle>
+        </CardHeader>
+      </Card>
       <Card className="w-full">
         <CardHeader>
           <CardTitle className="text-lg">Coordinates</CardTitle>
