@@ -1,4 +1,4 @@
-import type { StrongholdInput } from "@/types/stronghold";
+import type { StrongholdInput } from "@/src/types/Coordinates";
 
 export default function StrongholdComponents({
   x1,
@@ -8,18 +8,9 @@ export default function StrongholdComponents({
   angle1,
   angle2,
 }: StrongholdInput) {
-  const [x1Number, x2Number, z1Number, z2Number, angle1Number, angle2Number] = [
-    x1,
-    x2,
-    z1,
-    z2,
-    angle1,
-    angle2,
-  ].map(Number);
-
   // Convert angles from degrees to radians
-  const rad1 = (angle1Number * Math.PI) / 180;
-  const rad2 = (angle2Number * Math.PI) / 180;
+  const rad1 = (angle1 * Math.PI) / 180;
+  const rad2 = (angle2 * Math.PI) / 180;
 
   // Calculate the direction vectors
   const dx1 = -Math.sin(rad1);
@@ -28,8 +19,8 @@ export default function StrongholdComponents({
   const dz2 = Math.cos(rad2);
 
   // Calculate the intersection point of the two lines
-  const c1 = dz1 * x1Number + -dx1 * z1Number;
-  const c2 = dz2 * x2Number + -dx2 * z2Number;
+  const c1 = dz1 * x1 + -dx1 * z1;
+  const c2 = dz2 * x2 + -dx2 * z2;
 
   // Calculate the stronghold coordinates
   const denominator = dz1 * -dx2 - dz2 * -dx1;
@@ -38,7 +29,7 @@ export default function StrongholdComponents({
 
   // Calculate the distance from the second throw to the stronghold
   const distance = Math.sqrt(
-    Math.pow(strongholdX - x2Number, 2) + Math.pow(strongholdZ - z2Number, 2),
+    Math.pow(strongholdX - x2, 2) + Math.pow(strongholdZ - z2, 2),
   );
 
   // Return the results as an object

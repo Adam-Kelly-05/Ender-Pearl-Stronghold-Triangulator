@@ -24,12 +24,12 @@ export default function Home() {
 
   function calculateStrongholdLocation() {
     const strongholdResult = StrongholdComponents({
-      x1,
-      x2,
-      z1,
-      z2,
-      angle1,
-      angle2,
+      x1: Number(x1),
+      x2: Number(x2),
+      z1: Number(z1),
+      z2: Number(z2),
+      angle1: Number(angle1),
+      angle2: Number(angle2),
     });
 
     // Update the state with the calculated stronghold coordinates and distance
@@ -43,14 +43,14 @@ export default function Home() {
     setDistanceNether(`${strongholdResult.distanceNether} blocks`);
 
     // Render the chart with the calculated coordinates
-    CoordinatesChart(
-      Number(x1),
-      Number(z1),
-      Number(x2),
-      Number(z2),
-      strongholdResult.stronghold[0],
-      strongholdResult.stronghold[1],
-    );
+    CoordinatesChart({
+      x1: Number(x1),
+      z1: Number(z1),
+      x2: Number(x2),
+      z2: Number(z2),
+      strongholdX: strongholdResult.stronghold[0],
+      strongholdZ: strongholdResult.stronghold[1],
+    });
   }
 
   return (

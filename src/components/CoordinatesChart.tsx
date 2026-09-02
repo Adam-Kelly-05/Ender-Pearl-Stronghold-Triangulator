@@ -1,15 +1,16 @@
 import { Chart, registerables } from "chart.js";
 import ChartDataLabels from "chartjs-plugin-datalabels";
+import type { StrongholdResult } from "@/src/types/Coordinates";
 
 Chart.register(...registerables, ChartDataLabels);
-export default function CoordinatesChart(
+export default function CoordinatesChart({
   x1,
   z1,
   x2,
   z2,
   strongholdX,
   strongholdZ,
-) {
+}: StrongholdResult) {
   // Create a scatter plot of the throws and the stronghold location
   Chart.register(...registerables);
   Chart.getChart("coordsChart")?.destroy();
